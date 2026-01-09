@@ -1,7 +1,79 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "pymicroconf"
-version = "0.1.0"
+dynamic = ["version"]
 description = "A Python library for managing configuration files using TOML and environment variables"
 readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Nick Brisebois", email = "email@nick-b.ca"},
+]
+maintainers = [
+    {name = "Nick Brisebois", email = "email@nick-b.ca"},
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: System :: Systems Administration",
+    "Topic :: Utilities",
+]
+keywords = ["configuration", "config", "toml", "environment variables", "environment", "dataclass", "settings"]
 requires-python = ">=3.12"
 dependencies = []
+
+[project.option-dependencies]
+dev = []
+test = []
+
+[tool.hatch.version]
+path = "pymicroconf/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["pymicroconf"]
+
+[dependency-groups]
+dev = [
+    "black>=25.12.0",
+    "isort>=7.0.0",
+    "mypy>=1.19.1",
+    "ruff>=0.14.11",
+]
+test = [
+    "pytest>=9.0.2",
+]
+
+[project.urls]
+Homepage = "https://github.com/NickBrisebois/pymicroconf"
+Source = "https://github.com/NickBrisebois/pymicroconf"
+Tracker = "https://github.com/NickBrisebois/pymicroconf/issues"
+
+[tool.black]
+line-length = 120
+target-version = ["py312"]
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 120
+
+[tool.ruff]
+line-length = 120
+select = ["E", "F", "I", "N", "W"]
+ignore = []
+target-version = "py312"
+
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = false
+warn_unused_configs = true
+disallow_untyped_defs = true
