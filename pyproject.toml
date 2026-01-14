@@ -1,10 +1,6 @@
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-
 [project]
 name = "pymicroconf"
-dynamic = ["version"]
+version = "0.1.0"
 description = "A Python library for managing configuration files using TOML and environment variables"
 readme = "README.md"
 license = {file = "LICENSE"}
@@ -34,6 +30,10 @@ dependencies = []
 [project.option-dependencies]
 dev = []
 test = []
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [tool.hatch.version]
 path = "pymicroconf/__init__.py"
