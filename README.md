@@ -33,7 +33,7 @@ class AppConfig(BaseConfig):
     database_url: Annotated[str, ConfigField("DATABASE_URL", required=True)]
     debug: Annotated[str, ConfigField("DEBUG", default=False)]
 
-config = Config(Path("config.toml"), AppConfig).load_config()
+config = AppConfig(Path("config.toml"), AppConfig).load_config()
 ```
 
 Access configuration values:
